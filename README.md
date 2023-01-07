@@ -1,6 +1,6 @@
 <img src='image.png' width='100px' height='100px'>
 
-# Portfolio
+# Weather App
 
 - In this repository you can find my Weather app website.
 
@@ -36,7 +36,7 @@ Use the following steps to run this project locally:
 
 For a live demo please click on the following link:
 
-https://lista-tareas-jeici21.netlify.app/
+https://weather-app-jeici21.netlify.app/
 
 ## Authors
 
