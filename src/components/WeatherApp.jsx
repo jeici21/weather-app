@@ -1,9 +1,12 @@
 import { useState, useEffect } from 'react';
 import WeatherForm from './WeatherForm';
 import WeatherMainInfo from './WeatherMainInfo';
+import styles from './WeatherApp.module.css';
+import Loading from './Loading';
 
 export default function WeatherApp() {
     const [weather, setWeather] = useState(null);
+    console.log({ styles });
     useEffect(() => {
         loadInfo();
     }, []);//siempre se cargará junto al componente
@@ -18,7 +21,9 @@ export default function WeatherApp() {
                 `${process.env.REACT_APP_URL}&key=${process.env.REACT_APP_KEY}&q=${city}`
             );
             const json = await request.json();
-            setWeather(json);
+            setTimeout(() => {
+                setWeather(json);
+            }, 2000);//espera dos segundos antes de cargar la ciudad
             console.log(json);
         } catch (error) {
 
@@ -29,8 +34,10 @@ export default function WeatherApp() {
         loadInfo(city);
     }//manejando el cambio de ciudad
 
-    return <div>
-        <WeatherForm onChangeCity={handleChangeCity} />
-        <WeatherMainInfo weather={weather} />
-    </div>;
+    return (
+        <div className={styles.weatherContainer}>
+            <WeatherForm onChangeCity={handleChangeCity} />
+            {weather ? <WeatherMainInfo weather={weather} /> : <Loading />}{/*si la ciudad ya estaba cargada no mostrará pantalla de carga*/}
+        </div>
+    );
 }
