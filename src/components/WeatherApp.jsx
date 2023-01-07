@@ -36,8 +36,10 @@ export default function WeatherApp() {
 
     return (
         <div className={styles.weatherContainer}>
+            <h1>Weather App</h1>
             <WeatherForm onChangeCity={handleChangeCity} />
-            {weather ? <WeatherMainInfo weather={weather} /> : <Loading />}{/*si la ciudad ya estaba cargada no mostrará pantalla de carga*/}
+            {weather ? <WeatherMainInfo weather={weather} /> : <Loading />}
+            {/*si la ciudad ya estaba cargada no mostrará pantalla de carga*/}
         </div>
     );
 }

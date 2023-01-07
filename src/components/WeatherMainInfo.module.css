@@ -1,6 +1,8 @@
 .mainInfo {
-    background-color: white;
+    background: var(--body-bg);
+    color: var(--body-color);
     padding: 40px;
+    border: 5px double green;
     border-radius: 5px;
     box-sizing: border-box;
 }

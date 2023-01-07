@@ -5,7 +5,7 @@
     align-items: center;
     justify-content: center;
     box-sizing: border-box;
-    background-color: white;
+    background-color: var(--body-bg);
     border-radius: 5px;
 }
 
