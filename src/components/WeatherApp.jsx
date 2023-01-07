@@ -1,8 +1,16 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import WeatherForm from './WeatherForm';
 
 export default function WeatherApp() {
     const [weather, setWeather] = useState(null);
+    useEffect(() => {
+        loadInfo();
+    }, []);//siempre se cargará junto al componente
+
+    useEffect(() => {
+        document.title = `Weather | ${weather?.location.name ?? ""}`;//si es nulo regresa un string vacío
+    }, [weather]);//solo se cargará si cambia el valor de weather
+
     async function loadInfo(city = "london") {
         try {
             const request = await fetch(
